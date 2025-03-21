@@ -1,28 +1,26 @@
-name: Django Projec DCI Example
+name: Django Project on Users Resources and BookStore
+
 on:
-    push:
-        branches: [main]
+  push:
+    branches:
+      - main
 
-    pull_request:
-        branches: [main]
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout Django Project for Django Project DCI Example
-            - uses: actions/checkout@v2
-
-            - name: Set up Python 3.12
-                uses: actions/setup-python@v2
-                with:
-                    python-version: 3.12
-
-            - name: Install Dependencies
-            run: |
-                python -m pip install --upgrade pip
-                pip install -r requirements.txt
-
-            - name: Test with unittest
-                run: |
-                make dev-test2
-                
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      
+      - name: Set Up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      
+      - name: Install Dependencies and Libraries
+        run: | 
+          pip install -r requirements/dev.txt
+      
+      - name: Run our Unit Test
+        run: |
+          make dev-test2
