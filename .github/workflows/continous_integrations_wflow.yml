@@ -1,4 +1,4 @@
-name: Django Project on Users Resources and BookStore
+name: Django_Project_on_Users_Resources_and_BookStore
 
 on:
   push:
